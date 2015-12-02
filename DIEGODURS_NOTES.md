@@ -23,6 +23,19 @@ Behavior based services <=> Entity based service // Projections
 
 ---------------------------------
 
-Run monitoring & the need service.
-Implement Solution
+1. Run monitoring & the need service.
+2. Implement Solution
+
+---------------------------------
+
+Create a new packet or add data to the previous one?
+- if you add data to the previous one, you don't need to know the whole structure, just can just add a field, that's it.
+
+A service has some required fields (ie: `need: 'car_rental_offer'`) and rejecting field (ie: `not solutions.empty?`)
+
+
+
+
+
+
 

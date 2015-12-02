@@ -25,7 +25,11 @@ class RentalOfferAudiCars
 
       if body['need'] == 'car_rental_offer' && body['solutions'].size == 0
         event = RentalOfferNeedPacket.new
-        event.propose_solution({'type' => 'car', 'model' => 'Audi A6'})
+        event.propose_solution({
+          'type' => 'car',
+          'model' => 'Audi A6',
+          'price_per_day' => Random.rand(400..500)
+        })
         exchange.publish event.to_json
 
         puts " [v] Emitted a solution"
