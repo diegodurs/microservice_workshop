@@ -14,7 +14,8 @@ class RentalOfferNeedPacket
       'json_class' => self.class.name,
       'id' => @uuid,
       'need' => NEED,
-      'solutions' => @solutions
+      'solutions' => @solutions,
+      'username' => args.first[:username]
     }.to_json
   end
 
@@ -23,3 +24,18 @@ class RentalOfferNeedPacket
   end
 
 end
+
+
+
+# {
+#  'json_class'
+#  'id'
+#  'need'
+#  'solutions' => {
+#     >'deal_type' = [nil, 'member', 'new_membership']
+#     'type'
+#     'model'
+#     'price_per_day' * 0.9 / 0.8
+#  }
+#  'username'
+# }

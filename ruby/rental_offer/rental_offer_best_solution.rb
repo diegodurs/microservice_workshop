@@ -25,9 +25,11 @@ class RentalOfferBestSolution
 
       solutions = (@memory[json['id']] || []) + json['solutions']
 
-      @memory[json['id']] = solutions
+      @memory[json['id']] = solutions.uniq
 
-      puts "Best solution for #{json['id']}: #{best_solution(solutions)} our of #{solutions.count}"
+      unless solutions.empty?
+        puts "Best solution for #{json['id']}: #{best_solution(solutions)} out of #{solutions.map {|s| s['model']}.join(', ')}"
+      end
       # exchange.publish json.merge({
       #   'best_solution' => best_solution(solutions)
       # })

@@ -29,7 +29,7 @@ class RentalOfferNeed
 
   def publish_need(channel, exchange)
     loop do
-      exchange.publish RentalOfferNeedPacket.new(new_uuid).to_json
+      exchange.publish RentalOfferNeedPacket.new(new_uuid).to_json(username: random_username)
       puts " [x] Published a rental offer need on the bus"
       sleep 5
     end
@@ -37,6 +37,10 @@ class RentalOfferNeed
 
   def new_uuid
     SecureRandom.uuid.gsub('-', '')
+  end
+
+  def random_username
+    %w(Diego Simon Lars Fred George)[Random.rand(0..4)]
   end
 
 end

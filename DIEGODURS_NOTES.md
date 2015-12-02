@@ -27,6 +27,9 @@ Behavior based services <=> Entity based service // Projections
 2. Implement Solution
 3. Collect & Save the "Best" solution
 4. Provide alternative solution (Simon is having Batmobile)
+5. Membership
+    6. Member => offer member's special offer
+    7. Non-Member => offer to join 
 
 ---------------------------------
 
@@ -36,7 +39,19 @@ Create a new packet or add data to the previous one?
 A service has some required fields (ie: `need: 'car_rental_offer'`) and rejecting field (ie: `not solutions.empty?`)
 
 
+---------------------------------
+Lunch
+---------------------------------
 
+"Best": likelihood of user to buy VS value for business
+
+Bus:
+    No queue, no topic, no channel; everything on the same bus
+        hard to predict who's going to need the messages
+
+
+Q. Data duplication in messages, ponds size growing exponentially? 
+Q. New memeber? command? 
 
 
 
