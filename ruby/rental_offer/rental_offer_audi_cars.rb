@@ -1,5 +1,6 @@
 require_relative 'rental_offer_need_packet'
 require_relative 'connection'
+require 'byebug'
 
 # ruby rental_offer/rental_offer_solution_draft.rb 10.0.0.2 5678
 
@@ -21,16 +22,15 @@ class RentalOfferAudiCars
     queue.bind exchange
     puts " [*] Waiting for NEED on the bus... To exit press CTRL+C"
     queue.subscribe(block: true) do |delivery_info, properties, body|
-      body = JSON.parse(body)
+      json = JSON.parse(body)
 
-      if body['need'] == 'car_rental_offer' && body['solutions'].size == 0
-        event = RentalOfferNeedPacket.new
-        event.propose_solution({
+      if json['need'] == 'car_rental_offer' && json['solutions'].size == 0
+        json['solutions'] = [{
           'type' => 'car',
           'model' => 'Audi A6',
           'price_per_day' => Random.rand(400..500)
-        })
-        exchange.publish event.to_json
+        }]
+        exchange.publish json.to_json
 
         puts " [v] Emitted a solution"
       end

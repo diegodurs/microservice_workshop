@@ -11,6 +11,7 @@
 
 require_relative 'rental_offer_need_packet'
 require_relative 'connection'
+require 'securerandom'
 
 # Expresses a need for rental car offers
 class RentalOfferNeed
@@ -28,10 +29,14 @@ class RentalOfferNeed
 
   def publish_need(channel, exchange)
     loop do
-      exchange.publish RentalOfferNeedPacket.new.to_json
+      exchange.publish RentalOfferNeedPacket.new(new_uuid).to_json
       puts " [x] Published a rental offer need on the bus"
       sleep 5
     end
+  end
+
+  def new_uuid
+    SecureRandom.uuid.gsub('-', '')
   end
 
 end

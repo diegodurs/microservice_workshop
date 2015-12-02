@@ -4,13 +4,15 @@ require 'json'
 class RentalOfferNeedPacket
   NEED = 'car_rental_offer'
 
-  def initialize
+  def initialize(uuid)
+    @uuid = uuid
     @solutions = []
   end
 
   def to_json(*args)
     {
       'json_class' => self.class.name,
+      'id' => @uuid,
       'need' => NEED,
       'solutions' => @solutions
     }.to_json

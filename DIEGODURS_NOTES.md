@@ -25,6 +25,8 @@ Behavior based services <=> Entity based service // Projections
 
 1. Run monitoring & the need service.
 2. Implement Solution
+3. Collect & Save the "Best" solution
+4. Provide alternative solution (Simon is having Batmobile)
 
 ---------------------------------
 
