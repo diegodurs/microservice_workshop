@@ -53,6 +53,9 @@ Bus:
 Q. Data duplication in messages, ponds size growing exponentially? 
 Q. New memeber? command? 
 
+Services will ask ponds to get data, like membership.
+Ponds are basically service that just build a state like a projection, events are not the single source of trugh.
+
 
 
 

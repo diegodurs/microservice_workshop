@@ -38,8 +38,8 @@ class RentalOfferBestSolution
 
   def best_solution(solutions)
     solutions.sort do |a, b|
-      a['price_per_day'].to_f <=> b['price_per_day'].to_f
-    end.last
+      a['price_per_day'].to_i <=> b['price_per_day'].to_i
+    end.first
   end
 end
 
