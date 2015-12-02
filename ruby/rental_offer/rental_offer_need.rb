@@ -5,6 +5,9 @@
 #   docker run --name='workshop_need' -it -v /c/Users/fred/src/microservice_workshop/ruby:/workshop -w /workshop/rental_offer fredgeorge/ruby_microservice:latest bash
 # To run monitor at prompt:
 #   ruby rental_car_need.rb 192.168.59.103 bugs
+#
+#
+# ruby rental_offer/rental_offer_need.rb 10.0.0.2 5678
 
 require_relative 'rental_offer_need_packet'
 require_relative 'connection'

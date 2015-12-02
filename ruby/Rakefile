@@ -9,4 +9,16 @@ task :test do
   Dir.glob('./test/**/*_test.rb') { |f| require f }
 end
 
+task :console do
+  require 'irb'
+  require 'irb/completion'
+
+  $LOAD_PATH.unshift(File.dirname(__FILE__))
+  $LOAD_PATH.unshift(File.dirname(__FILE__) + '/lib')
+  $LOAD_PATH.unshift(File.dirname(__FILE__) + '/rental_offer')
+
+  ARGV.clear
+  IRB.start
+end
+
 task :default => :test

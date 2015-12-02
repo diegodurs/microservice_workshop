@@ -8,6 +8,8 @@
 
 require_relative 'connection'
 
+# ruby rental_offer/rental_offer_monitor.rb 10.0.0.2 5678
+
 # Streams rental-offer-related requests to the console
 class RentalOfferMonitor
 
